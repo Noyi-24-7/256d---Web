@@ -1,0 +1,49 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #000000;
+  --color-secondary: #F7F8FB;
+  --color-tertiary: #EE8B60;
+  --color-alternate: #E0E3E7;
+  --color-text-primary: #000000;
+  --color-text-secondary: #626D7C;
+  --color-bg-primary: #FFFFFF;
+  --color-bg-secondary: #F7F8FB;
+  --color-accent-1: #3259E8;
+  --color-accent-2: #00823E;
+  --color-accent-3: #C32518;
+  --color-accent-4: #E3E6EB;
+  --color-success: #00823E;
+  --color-warning: #F9CF58;
+  --color-error: #C32518;
+  --color-info: #FFFFFF;
+  --color-cool-gray-900: #15191E;
+  --color-cool-gray-700: #333A45;
+  --color-cool-gray-600: #4C5563;
+  --color-cool-gray-400: #848E9E;
+  --color-cool-gray-300: #A3ABB8;
+  --color-cool-gray-200: #C4C9D1;
+  --color-cool-gray-100: #E2E5EB;
+  --color-cool-gray-50: #F7F8FB;
+  --color-gray-50: #F8F8F8;
+  --color-gray-100: #DBDBDB;
+  --color-gray-10: #EBECF3;
+  --color-blue-primary: #004CE6;
+  --color-pending: #F38744;
+  --color-bitcoin: #F7931A;
+
+  --breakpoint-sm: 479px;
+  --breakpoint-md: 767px;
+  --breakpoint-lg: 991px;
+  --breakpoint-xl: 1240px;
+  --breakpoint-2xl: 1440px;
+
+  --font-sans: var(--font-delight), ui-sans-serif, system-ui, sans-serif;
+}
+
+@layer base {
+  body {
+    background-color: var(--color-bg-secondary);
+    color: var(--color-text-primary);
+  }
+}
