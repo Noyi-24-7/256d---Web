@@ -30,7 +30,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${delight.variable} antialiased`}>
+      <body className={`${delight.variable} font-sans antialiased`}>
         <NuqsAdapter>{children}</NuqsAdapter>
       </body>
     </html>
