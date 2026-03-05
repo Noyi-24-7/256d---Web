@@ -23,14 +23,14 @@ export const ActionCard = ({
         <button
             onClick={onClick}
             className={cn(
-                'flex flex-col items-center justify-center w-full h-[140px] rounded-3xl transition-transform hover:scale-[1.02] active:scale-95 focus:outline-none focus:ring-2 focus:ring-accent-1 focus:ring-offset-2',
+                'flex flex-col items-center justify-center w-full px-[20px] py-[16px] rounded-[24px] transition-transform hover:scale-[1.02] active:scale-95 focus:outline-none focus:ring-2 focus:ring-accent-1 focus:ring-offset-2',
                 isLight ? 'bg-bg-secondary text-text-primary' : 'bg-primary text-white',
                 className
             )}
             tabIndex={0}
             aria-label={label}
         >
-            <div className="mb-3">
+            <div className="mb-2">
                 <Image
                     src={iconSrc}
                     alt=""
@@ -39,7 +39,7 @@ export const ActionCard = ({
                     className="object-contain"
                 />
             </div>
-            <span className="text-sm font-semibold">{label}</span>
+            <span className="text-sm font-medium">{label}</span>
         </button>
     );
 };

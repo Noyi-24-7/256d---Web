@@ -43,7 +43,7 @@
 
 @layer base {
   body {
-    background-color: var(--color-bg-secondary);
+    background-color: #F7F8FB;
     color: var(--color-text-primary);
     font-family: var(--font-delight), ui-sans-serif, system-ui, sans-serif;
     line-height: 1.5;

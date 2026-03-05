@@ -4,26 +4,19 @@ import { useQueryState } from 'nuqs'
 import { RightPanelEmpty } from '@/components/shell/right-panel-empty'
 import { TypeUpiPanel } from '@/components/shell/type-upi-panel'
 
-export function RightPanel() {
+/**
+ * RightPanel — routes to the correct sub-panel based on the 'panel' URL param.
+ *
+ * Panel routing (mirrors Flutter FFAppState.pageState):
+ * - 'home'     → RightPanelEmpty (QR scan placeholder)
+ * - 'type_upi' → TypeUpiPanel    (UPI ID entry form)
+ * - other/null → null             (nothing rendered)
+ */
+export const RightPanel = () => {
     const [panel] = useQueryState('panel', { defaultValue: 'home' })
 
-    if (panel === 'home') {
-        return (
-            <div className="hidden 2xl:block w-full h-full">
-                <RightPanelEmpty />
-            </div>
-        )
-    }
-
-    if (panel === 'type_upi') {
-        return (
-            <div className="w-full h-full bg-bg-primary 2xl:bg-transparent">
-                <TypeUpiPanel />
-            </div>
-        )
-    }
-
-    // Future panels (e.g., scan_qr) would go here
+    if (panel === 'home') return <RightPanelEmpty />
+    if (panel === 'type_upi') return <TypeUpiPanel />
 
     return null
 }

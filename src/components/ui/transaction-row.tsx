@@ -16,28 +16,28 @@ export const TransactionRow = ({
     status,
 }: TransactionRowProps) => {
     return (
-        <div className="flex items-center justify-between py-4 border-b border-cool-gray-100 last:border-0 hover:bg-gray-50 transition-colors px-2 -mx-2 rounded-xl cursor-pointer">
-            <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-full overflow-hidden shrink-0 flex items-center justify-center bg-bg-secondary">
+        <div className="flex items-center justify-between p-4 bg-bg-secondary rounded-2xl cursor-pointer transition-colors w-full">
+            <div className="flex items-center gap-3">
+                <div className="w-[36px] h-[36px] rounded-full overflow-hidden shrink-0 flex items-center justify-center border-[2.67px] border-bg-primary">
                     <Image
                         src="/images/Sent.png"
                         alt="Sent"
-                        width={48}
-                        height={48}
-                        className="object-cover"
+                        width={36}
+                        height={36}
+                        className="object-contain"
                     />
                 </div>
-                <div className="flex flex-col">
-                    <span className="text-base font-semibold text-text-primary truncate max-w-[150px] lg:max-w-xs">
+                <div className="flex flex-col gap-1.5 justify-center">
+                    <span className="text-sm 2xl:text-base font-medium leading-[1.5] text-text-primary truncate max-w-[150px] lg:max-w-xs">
                         {upiId}
                     </span>
-                    <span className="text-xs text-text-secondary mt-1">
+                    <span className="text-xs 2xl:text-sm leading-[1.5] text-text-secondary">
                         {timestamp}
                     </span>
                 </div>
             </div>
-            <div className="flex flex-col items-end gap-1 shrink-0">
-                <span className="text-base font-semibold text-text-primary">
+            <div className="flex flex-col items-end gap-1.5 shrink-0 justify-center">
+                <span className="text-sm 2xl:text-base font-medium leading-[1.5] text-text-primary">
                     {amount}
                 </span>
                 <StatusBadge status={status} />

@@ -1,15 +1,51 @@
-import { Lock } from 'lucide-react'
+/** Shared font family string used across all components. */
+const FF_FONT = 'var(--font-delight), ui-sans-serif, system-ui, sans-serif'
 
-export function TransactionHistoryBtn() {
-    return (
-        <button className="w-full rounded-2xl border border-cool-gray-100 p-4 flex flex-row items-center justify-between bg-bg-primary hover:bg-cool-gray-50 transition-colors">
-            <div className="flex flex-row items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-bg-secondary flex items-center justify-center">
-                    <Lock className="w-5 h-5 text-text-secondary" />
-                </div>
-                <span className="text-base font-semibold text-text-primary">Transaction History</span>
-            </div>
-            <span className="text-sm font-medium text-text-secondary">Coming soon</span>
-        </button>
-    )
-}
+/**
+ * TransactionHistoryBtn — exact 1:1 replica of the Flutter transaction history row.
+ *
+ * Flutter source (shell_widget.dart lines 992–1053):
+ * - Container: primaryBackground (#FFF), borderRadius:16, border: coolGray100 (#E2E5EB) 1px
+ * - Padding: fromSTEB(16, 20, 16, 20)
+ * - Row — MainAxisAlignment.spaceBetween:
+ *   - 'Transaction History': bodyLarge w600, 16px, primaryText, lh:1.24
+ *   - Icon(lock_outline, 22px, coolGray300 #A3ABB8)
+ */
+export const TransactionHistoryBtn = () => (
+    <button
+        aria-label='Transaction History'
+        style={{
+            width: '100%',
+            backgroundColor: '#FFFFFF',
+            borderRadius: 16,
+            border: '1px solid #E2E5EB',
+            padding: '20px 16px',
+            display: 'flex',
+            flexDirection: 'row',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            cursor: 'pointer',
+        }}
+    >
+        <span
+            style={{
+                fontFamily: FF_FONT,
+                fontSize: 16,
+                fontWeight: 600,
+                color: '#000000',
+                lineHeight: 1.24,
+                letterSpacing: 0,
+            }}
+        >
+            Transaction History
+        </span>
+
+        {/* Material Symbol: lock_outline, 22px, coolGray300 */}
+        <span
+            className='material-symbols-rounded'
+            style={{ fontSize: 22, color: '#A3ABB8', fontVariationSettings: "'FILL' 0" }}
+        >
+            lock
+        </span>
+    </button>
+)
