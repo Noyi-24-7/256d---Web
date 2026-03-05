@@ -146,13 +146,19 @@ export const TypeUpiPanel = () => {
                */}
                             <div className='tupi-input-group' style={{ display: 'flex', flexDirection: 'column', gap: 12, width: '100%' }}>
 
-                                {/* TextFormField — border:coolGray200, focused:transparent, borderRadius:8 */}
+                                {/*
+                                 * TextFormField — border:coolGray200 (#C4C9D1), borderRadius:8.
+                                 * Flutter source focusedBorder = Color(0x00000000) (transparent) —
+                                 * works on mobile because Material fields have elevation/shadow.
+                                 * On web a transparent border on a white field makes it invisible,
+                                 * so we substitute with primaryText (#000000) 1px border on focus.
+                                 */}
                                 <input
                                     type='text'
                                     value={upiId}
                                     placeholder='Enter UPI ID'
                                     onChange={(e) => setUpiId(e.target.value)}
-                                    onFocus={(e) => { e.currentTarget.style.borderColor = 'transparent' }}
+                                    onFocus={(e) => { e.currentTarget.style.borderColor = '#000000' }}
                                     onBlur={(e) => { e.currentTarget.style.borderColor = '#C4C9D1' }}
                                     style={{
                                         width: '100%',
