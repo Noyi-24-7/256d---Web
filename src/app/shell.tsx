@@ -1,6 +1,7 @@
 'use client'
 
 import { LeftPanel } from '@/components/shell/left-panel'
+import { RightPanel } from '@/components/shell/right-panel'
 import { useQueryState } from 'nuqs'
 
 export default function Shell() {
@@ -18,11 +19,10 @@ export default function Shell() {
 
             {/* Right Panel */}
             <div
-                className={`w-full 2xl:w-[696px] shrink-0 2xl:ml-6 px-4 pt-28 2xl:px-[88px] 2xl:pt-[56px] bg-bg-primary 2xl:bg-transparent ${panel === 'home' ? 'hidden 2xl:block' : 'block'
+                className={`w-full 2xl:w-[696px] shrink-0 2xl:ml-6 bg-bg-primary 2xl:bg-transparent ${panel === 'home' ? 'hidden 2xl:block' : 'block'
                     }`}
             >
-                <h1 className="text-2xl font-semibold mb-4 text-text-primary leading-[1.24]">Right Panel</h1>
-                <p className="text-text-secondary">Active panel state: {panel}</p>
+                <RightPanel />
             </div>
         </div>
     )
