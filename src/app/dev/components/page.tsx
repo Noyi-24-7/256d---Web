@@ -1,9 +1,5 @@
-import React from 'react';
-import { FFButton } from '@/components/ui/ff-button';
-import { ActionCard } from '@/components/ui/action-card';
-import { TransactionRow } from '@/components/ui/transaction-row';
-import { StatusBadge } from '@/components/ui/status-badge';
-import { ProgressBar } from '@/components/ui/progress-bar';
+import React from 'react'
+import { FFButton, ActionCard, TransactionRow, StatusBadge, ProgressBar } from '@/components/ui/shared-components'
 
 export default function DevComponentsPage() {
     return (

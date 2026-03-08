@@ -1,19 +1,16 @@
 import Image from 'next/image'
 
-/** Shared font family string used across all components. */
-const FF_FONT = 'var(--font-delight), ui-sans-serif, system-ui, sans-serif'
+/** Shared font family — mirrors Flutter's default TextStyle fontFamily. */
+const FF = 'var(--font-delight), ui-sans-serif, system-ui, sans-serif'
 
 /**
- * RightPanelEmpty — exact 1:1 replica of the Flutter Dashboard_Right_Container (home state).
+ * RightHome — idle state of the right panel (Flutter "home" panel state).
  *
- * Flutter source (shell_widget.dart lines 1069–1132):
- * - Container: primaryBackground (#FFF), 696px wide, min-height: viewport
- * - Padding: fromSTEB(180, 240, 180, 0)
- * - Column (divide:8):
- *   - Image(Scan_Icon.png, 40×40, contain, borderRadius:8)
- *   - Text: labelLarge w500, 16px, secondaryText (#626D7C), lh:1.5, centered
+ * Flutter source: shell_widget.dart lines 1069–1132
+ * Container: primaryBackground (#FFF), padding: fromSTEB(180, 240, 180, 0)
+ * Column(gap:8): Scan_Icon.png (40×40, border-radius:8) + instruction text
  */
-export const RightPanelEmpty = () => (
+const RightHome = () => (
     <div
         style={{
             width: '100%',
@@ -26,7 +23,6 @@ export const RightPanelEmpty = () => (
             alignItems: 'center',
         }}
     >
-        {/* Column: icon + text — gap:8 */}
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 8 }}>
             <div style={{ width: 40, height: 40, borderRadius: 8, overflow: 'hidden' }}>
                 <Image
@@ -39,7 +35,7 @@ export const RightPanelEmpty = () => (
             </div>
             <p
                 style={{
-                    fontFamily: FF_FONT,
+                    fontFamily: FF,
                     fontSize: 16,
                     fontWeight: 500,
                     color: '#626D7C',
@@ -54,3 +50,5 @@ export const RightPanelEmpty = () => (
         </div>
     </div>
 )
+
+export default RightHome
