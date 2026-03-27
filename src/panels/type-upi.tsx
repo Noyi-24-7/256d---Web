@@ -33,7 +33,8 @@ const TypeUpi = () => {
     const [upiId, setUpiId] = useState('')
     const isEnabled = upiId.trim().length > 0
 
-    const handleContinue = () => console.log('Continue with UPI ID:', upiId)
+    /** Stub: wire to isValidUpi(upiId) + fetchLnAddress(upiId) from lib/payments.ts, then navigate */
+    const handleContinue = () => setPanel('enter_amount')
 
     const handlePaste = async () => {
         try {

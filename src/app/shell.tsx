@@ -5,6 +5,10 @@ import { useQueryState } from 'nuqs'
 import LeftPanelContent from '@/panels/home'
 import RightHome from '@/panels/right-home'
 import TypeUpi from '@/panels/type-upi'
+import ScanQr from '@/panels/scan-qr'
+import EnterAmountPanel from '@/panels/enter-amount-panel'
+import ConfirmTxPanel from '@/panels/confirm-tx-panel'
+import BitcoinPaymentPanel from '@/panels/bitcoin-payment-panel'
 
 /**
  * Shell — main application layout.
@@ -18,9 +22,12 @@ import TypeUpi from '@/panels/type-upi'
  *      └─ [1] Align(topLeft) > NavBar (720px, fixed overlay)
  *
  * Panel routing (mirrors Flutter FFAppState.pageState):
- *   panel=home     → Left: LeftPanelContent  | Right: RightHome
- *   panel=type_upi → Left: LeftPanelContent  | Right: TypeUpi
- *   panel=scan_qr  → Left: hidden (mobile)   | Right: ScanQr  ← add panels/scan-qr.tsx
+ *   panel=home         → Left: LeftPanelContent  | Right: RightHome
+ *   panel=type_upi     → Left: LeftPanelContent  | Right: TypeUpi
+ *   panel=scan_qr      → Left: hidden (mobile)   | Right: ScanQr
+ *   panel=enter_amount → Left: LeftPanelContent  | Right: EnterAmountPanel
+ *   panel=confirm_tx   → Left: LeftPanelContent  | Right: ConfirmTxPanel
+ *   panel=pay_bitcoin  → Left: LeftPanelContent  | Right: BitcoinPaymentPanel
  *
  * To add a new panel screen:
  *   1. Create src/panels/<name>.tsx
@@ -28,7 +35,8 @@ import TypeUpi from '@/panels/type-upi'
  */
 const Shell = () => {
   const [panel] = useQueryState('panel', { defaultValue: 'home' })
-  const isHome = panel === 'home'
+  // Left panel is visible on desktop for all states; hidden on mobile only for non-transaction sub-panels
+  const isHome = panel === 'home' || panel === 'enter_amount' || panel === 'confirm_tx' || panel === 'pay_bitcoin'
 
   return (
     <>
@@ -84,6 +92,10 @@ const Shell = () => {
           >
             {panel === 'home' && <RightHome />}
             {panel === 'type_upi' && <TypeUpi />}
+            {panel === 'scan_qr' && <ScanQr />}
+            {panel === 'enter_amount' && <EnterAmountPanel />}
+            {panel === 'confirm_tx' && <ConfirmTxPanel />}
+            {panel === 'pay_bitcoin' && <BitcoinPaymentPanel />}
           </div>
 
           {/*
