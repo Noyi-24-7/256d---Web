@@ -35,8 +35,8 @@ import BitcoinPaymentPanel from '@/panels/bitcoin-payment-panel'
  */
 const Shell = () => {
   const [panel] = useQueryState('panel', { defaultValue: 'home' })
-  // Left panel is visible on desktop for all states; hidden on mobile only for non-transaction sub-panels
-  const isHome = panel === 'home' || panel === 'enter_amount' || panel === 'confirm_tx' || panel === 'pay_bitcoin'
+  // Left panel is visible on desktop for all states; hidden on mobile when viewing a right-panel route.
+  const isHome = panel === 'home'
 
   return (
     <>
