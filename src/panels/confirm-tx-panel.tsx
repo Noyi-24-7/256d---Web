@@ -184,8 +184,8 @@ const ConfirmTxPanel = () => {
                   {/* Fees row — spaced */}
                   <SummaryRow label='Fees:' value='₹0.09' spaced />
 
-                  {/* Total in Sats row — spaced */}
-                  <SummaryRow label='Total in Sats:' value='₹150.09' spaced />
+                  {/* Total row — spaced */}
+                  <SummaryRow label='Total:' value='₹150.09' spaced />
 
                 </div>
               </div>
